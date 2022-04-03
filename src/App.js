@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import {React, useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+   //   const onSubmit = () => {
+  //       alert('hello');
+  //     }
+    
+      //onkeyup event
+      const onKeyUp = (event) => {
+        if(event.keyCode === 13) {
+          onSubmit()
+        }
+      }
+  
+      {/* useState */}
+  const [text, setText] = useState('무지');
+  const onSubmit = () => {
+    alert('submitted')
+  }
+      const Text = () => {
+        setText('죠르디')
+        console.log(text);
+      }
+  
+    return (
+      <div className="App">
+        <input onKeyUp={onKeyUp} />
+        <button onClick={onSubmit}>submit</button>
+        <br /> <br />
+  {/*use state*/}
+        <span>{text}</span>
+        <button onClick={Text}>update</button>
+      </div>
+    );
+  }
 export default App;
